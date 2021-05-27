@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Produtos</title>
+	    <link rel="stylesheet" href="style/style.css">
+	</head>
+	<body>
+	   	<nav id="menu-h">
+	        <ul>
+	            <li><a href="/">Início</a></li>
+	            <li><a href="/cadastrar">Cadastrar Produto</a></li>
+	            <li><a href="/sobre">Sobre o Sistema</a></li>
+	        </ul>
+	    </nav>
+	    <!------------------------------------------------------------------------------------------>
+		<div>
+			<h2 class="title">Produtos Cadastrados</h2>
+			<br/>
+		</div>
+		<div>
+			<table id="tabela">
+			  <tr>
+			    <th>Id</th>
+			    <th>Descricão</th>
+			    <th>Marca</th>
+			    <th>Modelo</th>
+			    <th>Cor</th>
+			    <th>Unidade de medida</th>
+			    <th>Categoria</th>
+			    <th>Data de Fabricação</th>
+			    <th>Data de Vencimento</th>
+			    <th>Código de barras</th>
+			    <th colspan="2">Ações</th>
+			  </tr>
+			  <tr th:each="prod: ${lista}">
+			    <td th:text="${prod.id}"></td>
+			    <td th:text="${prod.descricao}"></td>
+			    <td th:text="${prod.marca}"></td>
+			  	<td th:text="${prod.modelo}"></td>
+			    <td th:text="${prod.cor}"></td>
+			    <td th:text="${prod.medida}"></td>
+			    <td th:text="${prod.categoria}"></td>
+			    <td th:text="${prod.dataFab}"></td>
+			    <td th:text="${prod.dataVenc}"></td>
+			    <td th:text="${prod.codBarras}"></td>
+			    <td>
+			    	<a th:href="@{/delete/{id}(id=${prod.id})}">
+				    	<button 
+				    		class="btn_del" 
+				    		type="button" 
+				    		value="Excluir">
+				    		Excluir
+				    	</button>
+				    </a>
+			    </td>
+			    <td>
+			    	<a th:href="@{/edit/{id}(id=${prod.id})}">
+				    	<button 
+				    		class="btn_ok" 
+				    		type="button" 
+				    		value="Editar">
+				    		Editar
+				    	</button>
+				    </a>
+			    </td>
+			  </tr>
+			</table>
+		</div>
+	</body>
+</html>

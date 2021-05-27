@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+    	<link rel="stylesheet" href="../style/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Editar Produto</title>
+	    <!------------------------------------------------------------------------------------------>
+	    <script type="text/javascript">
+	        function formatar(mascara, input){
+	        	  var i = input.value.length;
+	        	  var saida = mascara.substring(0,1);
+	        	  var texto = mascara.substring(i)
+	        	  if (texto.substring(0,1) != saida){
+	        	            input.value += texto.substring(0,1);
+	        	  }
+	        }
+    	</script>
+    	<!------------------------------------------------------------------------------------------>
+    </head>
+    <body>
+    	<nav id="menu-h">
+	        <ul>
+	            <li><a href="/">Início</a></li>
+	            <li><a href="/cadastrar">Cadastrar Produto</a></li>
+	            <li><a href="/sobre">Sobre o Sistema</a></li>
+	        </ul>
+	    </nav>
+	    <!------------------------------------------------------------------------------------------>
+    	<div class="title"><h2>Editar Produto</h2></div>
+    	<div class="container">
+		  <form method="post" id="formProd" action="#" th:action="@{/update/{id}(id=${prod.id})}" th:object="${prod}">
+		  	<!--Id-->
+			<div class="row">
+				<div class="col-label">
+			      <label>Id</label>
+			    </div>
+			    <div class="col-input">
+			      <input th:field="*{id}" type="text" disabled="disabled">
+			    </div>
+			</div>
+			<!--Descrição-->
+			<div class="row">
+			    <div class="col-label">
+			      	<label>Descrição</label>
+			    </div>
+			    <div class="col-input">
+			      <input th:field="*{descricao}" type="text" name="descricao" required>
+			    </div>
+			</div>
+			<!--Marca-->
+			<div class="row">
+			    <div class="col-label">
+			      	<label>Marca</label>
+			    </div>
+			    <div class="col-input">
+			      <input th:field="*{marca}" type="text" name="marca" required>
+			    </div>
+			</div>
+			<!--Modelo-->
+			<div class="row">
+			    <div class="col-label">
+			      	<label>Modelo</label>
+			    </div>
+			    <div class="col-input">
+			      <input th:field="*{modelo}" type="text" name="modelo" required>
+			    </div>
+			</div>
+			<!--Cor-->
+			<div class="row">
+			    <div class="col-label">
+			      	<label>Cor</label>
+			    </div>
+			    <div class="col-input">
+			      <input th:field="*{cor}" type="text" name="cor" required>
+			    </div>
+			</div>
+			<!--Unidade de Medida-->
+			<div class="row">
+			    <div class="col-label">
+			      	<label>Unidade de Medida</label>
+			    </div>
+			    <div class="col-input">
+			      <input th:field="*{medida}" type="text" name="medida" required>
+			    </div>
+			</div>
+			<!--Categoria-->
+			<div class="row">
+			    <div class="col-label">
+			      	<label>Categoria</label>
+			    </div>
+			    <div class="col-input">
+			      <select th:field="*{categoria}" id="formCategoria" name="categoria" form="formProd">
+					  <option value="Alimento">Alimento</option>
+					  <option value="Higiene">Higiene</option>
+					  <option value="Limpeza">Limpeza</option>
+					  <option value="Outros">Outros</option>
+				  </select>
+			    </div>
+			</div>
+			<!--Data de Fabricação-->
+			<div class="row">
+			    <div class="col-label">
+			      	<label>Data de Fabricação</label>
+			    </div>
+			    <div class="col-input">
+			      <input th:field="*{dataFab}" type="date" name="dataFab" required>
+			    </div>
+			</div>
+			<!--Data de Vencimento-->
+			<div class="row">
+			    <div class="col-label">
+			      	<label>Data de Vencimento</label>
+			    </div>
+			    <div class="col-input">
+			      <input th:field="*{dataVenc}" type="date" required>
+			    </div>
+			</div>
+			<!--Código de Barras-->
+			<div class="row">
+			    <div class="col-label">
+			      	<label>Código de Barras</label>
+			    </div>
+			    <div class="col-input">
+			      <input 
+			      	  th:field="*{codBarras}"
+				      type="text" 
+				      name="codBarras" 
+				      required 
+				      maxlength="15"
+				      placeholder="X XXXXXX XXXXXX"
+				      title="X XXXXXX XXXXXX"
+				      pattern="([0-9]{1}[\ ]?[0-9]{6}[\ ]?[0-9]{6})$"
+				      OnKeyPress="formatar('# ###### ######', this)" >
+			    </div>
+			</div>
+			<!--Botões-->
+			<div class="row">
+				<div class="col-label"></div>
+				<div class="col-input">
+					<input type="submit" value="Confirmar Alterações"></input>
+				</div>
+				<div class="col-label"></div>
+				<div class="col-input">
+					<a href="/">
+				    	<button 
+				    		class="btn_cancel" 
+				    		type="button" 
+				    		value="Cancelar">
+				    		Cancelar
+				    	</button>
+				    </a>
+				</div>
+			</div>
+		  </form>
+		</div>
+    <body>
+</html>
