@@ -5,50 +5,50 @@
 	<head>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>Produtos</title>
+	    <title>Alguel de livros</title>
 	    <link rel="stylesheet" href="style/style.css">
 	</head>
 	<body>
 	   	<nav id="menu-h">
 	        <ul>
 	            <li><a href="/">Início</a></li>
-	            <li><a href="/cadastrar">Cadastrar Produto</a></li>
+	            <li><a href="/cadastrarLivro">Cadastrar Livro</a></li>
 	            <li><a href="/sobre">Sobre o Sistema</a></li>
 	        </ul>
 	    </nav>
 	    <!------------------------------------------------------------------------------------------>
 		<div>
-			<h2 class="title">Produtos Cadastrados</h2>
+			<h2 class="title">Livros Cadastrados</h2>
 			<br/>
 		</div>
 		<div>
 			<table id="tabela">
 			  <tr>
 			    <th>Id</th>
-			    <th>Descricão</th>
-			    <th>Marca</th>
-			    <th>Modelo</th>
-			    <th>Cor</th>
-			    <th>Unidade de medida</th>
-			    <th>Categoria</th>
-			    <th>Data de Fabricação</th>
-			    <th>Data de Vencimento</th>
-			    <th>Código de barras</th>
+			    <th>Título</th>
+			    <th>Autor</th>
+			    <th>Editora</th>
+			    <th>Gênero</th>
+			    <th>Quantidade</th>
+			    <th>Preço</th>
+			    <th>Cadastro</th>
+			    <th>Última Modificação</th>
+			    <th>Codigo de Barras</th>
 			    <th colspan="2">Ações</th>
 			  </tr>
-			  <tr th:each="prod: ${lista}">
-			    <td th:text="${prod.id}"></td>
-			    <td th:text="${prod.descricao}"></td>
-			    <td th:text="${prod.marca}"></td>
-			  	<td th:text="${prod.modelo}"></td>
-			    <td th:text="${prod.cor}"></td>
-			    <td th:text="${prod.medida}"></td>
-			    <td th:text="${prod.categoria}"></td>
-			    <td th:text="${prod.dataFab}"></td>
-			    <td th:text="${prod.dataVenc}"></td>
-			    <td th:text="${prod.codBarras}"></td>
+			  <tr th:each="livro: ${lista}">
+			    <td th:text="${livro.id}"></td>
+			    <td th:text="${livro.titulo}"></td>
+			    <td th:text="${livro.autor}"></td>
+			  	<td th:text="${livro.editora}"></td>
+			    <td th:text="${livro.genero}"></td>
+			    <td th:text="${livro.quantidade}"></td>
+			    <td th:text="${livro.preco}"></td>
+			    <td th:text="${livro.dataCadastro}"></td>
+			    <td th:text="${livro.dataUpdate}"></td>
+			    <td th:text="${livro.codigoDeBarras}"></td>
 			    <td>
-			    	<a th:href="@{/delete/{id}(id=${prod.id})}">
+			    	<a th:href="@{/delete/{id}(id=${livro.id})}">
 				    	<button 
 				    		class="btn_del" 
 				    		type="button" 
@@ -58,7 +58,7 @@
 				    </a>
 			    </td>
 			    <td>
-			    	<a th:href="@{/edit/{id}(id=${prod.id})}">
+			    	<a th:href="@{/edit/{id}(id=${livro.id})}">
 				    	<button 
 				    		class="btn_ok" 
 				    		type="button" 

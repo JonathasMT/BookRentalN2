@@ -24,89 +24,74 @@
 	            <li>
 	            <a href="/">Início</a>
 	            </li>
-	            <li><a href="/cadastrar">Cadastrar Produto</a></li>
+	            <li><a href="/cadastrarLivro">Cadastrar Livro</a></li>
 	            <li><a href="/sobre">Sobre o Sistema</a></li>
 	        </ul>
 	    </nav>
 	    <!------------------------------------------------------------------------------------------>
-    	<div class="title"><h2>Cadastrar Produto</h2></div>
+    	<div class="title"><h2>Cadastrar Livro</h2></div>
     	<div class="container">
-		  <form method="post" id="formProd">
-		  	<!--Descrição-->
+		  <form method="post" id="formLivro">
+		  	<!--Título-->
 			<div class="row">
 				<div class="col-label">
-			      <label>Descrição</label>
+			      <label>Título</label>
 			    </div>
 			    <div class="col-input">
-			      <input type="text" name="descricao" required>
+			      <input type="text" name="titulo" required>
 			    </div>
 			</div>
-			<!--Marca-->
+			<!--Autor-->
 			<div class="row">
 			    <div class="col-label">
-			      	<label>Marca</label>
+			      	<label>Autor</label>
 			    </div>
 			    <div class="col-input">
-			      <input type="text" name="marca" required>
+			      <input type="text" name="autor" required>
 			    </div>
 			</div>
-			<!--Modelo-->
+			<!--Editora-->
 			<div class="row">
 			    <div class="col-label">
-			      	<label>Modelo</label>
+			      	<label>Editora</label>
 			    </div>
 			    <div class="col-input">
-			      <input type="text" name="modelo" required>
+			      <input type="text" name="editora" required>
 			    </div>
 			</div>
-			<!--Cor-->
+			<!--Gênero-->
 			<div class="row">
 			    <div class="col-label">
-			      	<label>Cor</label>
+			      	<label>Gênero</label>
 			    </div>
 			    <div class="col-input">
-			      <input type="text" name="cor" required>
-			    </div>
-			</div>
-			<!--Unidade de Medida-->
-			<div class="row">
-			    <div class="col-label">
-			      	<label>Unidade de Medida</label>
-			    </div>
-			    <div class="col-input">
-			      <input type="text" name="medida" required>
-			    </div>
-			</div>
-			<!--Categoria-->
-			<div class="row">
-			    <div class="col-label">
-			      	<label>Categoria</label>
-			    </div>
-			    <div class="col-input">
-			      	<select id="formCategoria" name="categoria" form="formProd">
-					  <option value="Alimento">Alimento</option>
-					  <option value="Higiene">Higiene</option>
-					  <option value="Limpeza">Limpeza</option>
-					  <option value="Outros">Outros</option>
+			      	<select id="generoCadastro" name="genero">
+			      	  <option value="Outros">Outros</option>
+					  <option value="Ficção">Ficção</option>
+					  <option value="Tecnologia">Tecnologia</option>
+					  <option value="Matemática">Matemática</option>
+					  <option value="Línguas">Línguas</option>
+					  <option value="Drama">Drama</option>
+					  <option value="Romance">Romance</option>
 					</select>
 			    </div>
 			</div>
-			<!--Data de Fabricação-->
+			<!--Quantidade-->
 			<div class="row">
 			    <div class="col-label">
-			      	<label>Data de Fabricação</label>
+			      	<label>Quantidade</label>
 			    </div>
 			    <div class="col-input">
-			      <input type="date" name="dataFab" required>
+			      <input type="number" name="quantidade" min="1" required>
 			    </div>
 			</div>
-			<!--Data de Vencimento-->
+			<!--Preço-->
 			<div class="row">
 			    <div class="col-label">
-			      	<label>Data de Vencimento</label>
+			      	<label>Preço</label>
 			    </div>
 			    <div class="col-input">
-			      <input type="date" name="dataVenc" required>
+			      <input type="number" name="preco" min="0.01" required>
 			    </div>
 			</div>
 			<!--Código de Barras-->
@@ -117,7 +102,7 @@
 			    <div class="col-input">
 			      <input 
 				      type="text" 
-				      name="codBarras" 
+				      name="codigoDeBarras" 
 				      required 
 				      maxlength="15"
 				      placeholder="X XXXXXX XXXXXX"
